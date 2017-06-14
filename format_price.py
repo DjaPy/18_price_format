@@ -26,8 +26,8 @@ def get_right_fractional(fractional):
 
 
 def format_price(price):
-    fractional, integer = modf(price)
-    print(fractional, integer)
+    valid_price = get_right_price(price)
+    fractional, integer = modf(valid_price)
     format_prices = '{:,.0f}'.format(integer)
     valid_fractional = get_right_fractional(fractional)
     format_prices = format_prices.replace(',', ' ')
@@ -39,7 +39,7 @@ def parser_command_line():
     parser = ArgumentParser()
     parser.add_argument('-p', '--price', nargs='?',
                         required=True, dest='price',
-                        help='Format price in *** *** ***. **')
+                        help='Format price in *** *** ***.**')
     options = parser.parse_args()
     return options
 

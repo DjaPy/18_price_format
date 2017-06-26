@@ -1,8 +1,5 @@
 import unittest
 from format_price import format_price
-from math import pi
-
-
 
 
 class PriceFormatingTestCase(unittest.TestCase):
@@ -15,7 +12,7 @@ class PriceFormatingTestCase(unittest.TestCase):
         self.test_set = {1, 2, 3, 4}
         self.num_complex = (2 + 3j)
         self.num_negative = -3
-        self.num_pi = pi
+        self.fractional_more_three = '1245.5844'
         self.n = None
 
 
@@ -46,7 +43,7 @@ class PriceFormatingTestCase(unittest.TestCase):
         self.assertEqual(format_price(test_func()), TypeError)
         self.assertEqual(format_price(self.test_set),TypeError)
         self.assertEqual(format_price(self.num_negative),ValueError)
-        self.assertEqual(format_price(self.num_pi), ValueError)
+        self.assertEqual(format_price(self.fractional_more_three), ValueError)
         self.assertEqual(format_price(self.n), TypeError)
 
 

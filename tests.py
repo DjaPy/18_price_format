@@ -8,7 +8,7 @@ class PriceFormatingTestCase(unittest.TestCase):
     def setUp(self):
         self.test_list = [1, 2]
         self.test_dict = {1: 2, 2: 3}
-        self.test_tuple = (1 ,2 ,3)
+        self.test_tuple = (1, 2, 3)
         self.test_set = {1, 2, 3, 4}
         self.num_complex = (2 + 3j)
         self.num_negative = -3

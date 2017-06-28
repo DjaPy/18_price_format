@@ -5,12 +5,12 @@ from argparse import ArgumentParser
 
 def data_validation(price):
     if isinstance(price, (str, float)):
-        price = check_decimal_places(price)
-        return get_right_price(price)
+        if check_decimal_places(price) is True:
+            return get_right_price(price)
+        else:
+            return ValueError
     elif isinstance(price, int):
         return get_right_price(price)
-    else:
-        return TypeError
 
 
 def check_decimal_places(price):
@@ -19,9 +19,9 @@ def check_decimal_places(price):
     price = price.replace(',', '.')
     price_list = price.split('.')
     if len(price_list[1]) > 3:
-        return ''
+        return False
     else:
-        return price
+        return True
 
 
 def get_right_price(price):
@@ -50,7 +50,7 @@ def get_right_fractional(fractional):
 
 def format_price(price):
     valid_price = data_validation(price)
-    if valid_price is TypeError:
+    if valid_price is None:
         return TypeError
     elif valid_price is ValueError:
         return ValueError

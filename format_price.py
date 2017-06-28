@@ -5,7 +5,7 @@ from argparse import ArgumentParser
 
 def data_validation(price):
     if isinstance(price, (str, float)):
-        if check_decimal_places(price) is True:
+        if check_decimal_places(price) is False:
             return get_right_price(price)
         else:
             return ValueError
@@ -18,10 +18,8 @@ def check_decimal_places(price):
         price = str(price)
     price = price.replace(',', '.')
     price_list = price.split('.')
-    if len(price_list[1]) > 3:
-        return False
-    else:
-        return True
+    return bool(len(price_list[1]) > 3)
+
 
 
 def get_right_price(price):
@@ -78,4 +76,5 @@ def parser_command_line():
 if __name__ == '__main__':
     options = parser_command_line()
     price = options.price
+    print(check_decimal_places(price))
     print(format_price(price))

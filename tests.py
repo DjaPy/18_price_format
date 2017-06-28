@@ -32,8 +32,6 @@ class PriceFormatingTestCase(unittest.TestCase):
 
 
     def testAnyData(self):
-
-
         def test_func():
             pass
         self.assertEqual(format_price(self.test_list), TypeError)

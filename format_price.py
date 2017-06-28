@@ -76,5 +76,4 @@ def parser_command_line():
 if __name__ == '__main__':
     options = parser_command_line()
     price = options.price
-    print(check_decimal_places(price))
     print(format_price(price))
